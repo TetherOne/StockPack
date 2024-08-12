@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: on-failure
+    command: sh -c "uvicorn src.runner:app_stock --host 0.0.0.0 --port 8000 --reload"
+    ports:
+      - "8021:8000"
