@@ -2,13 +2,12 @@ from typing import TypeVar
 
 from fastapi import FastAPI
 
-
 FastAPIInstance = TypeVar("FastAPIInstance", bound=FastAPI)
 
 
 class ApiServer:
-    app_portfolio = FastAPI()
-    
+    app_profile = FastAPI()
+
     def __init__(self, app: FastAPI):
         self.__app = app
 

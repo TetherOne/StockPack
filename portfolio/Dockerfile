@@ -1,13 +1,15 @@
-FROM python:3.11-slim
+FROM python:3.11.6-bookworm
 
-RUN pip install poetry
+ENV PYTHONUNBUFFERED=1
 
-WORKDIR /app
+WORKDIR /stockpack/portfolio
 
-COPY pyproject.toml poetry.lock* ./
+RUN pip install --upgrade pip "poetry==1.6.1"
+RUN poetry config virtualenvs.create false
 
-RUN poetry config virtualenvs.create false && poetry install --no-dev --no-interaction --no-ansi
+COPY pyproject.toml poetry.lock ./
+
+RUN poetry install
 
 COPY . .
 
-EXPOSE 8020
