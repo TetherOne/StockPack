@@ -11,4 +11,4 @@ class TransactionHistory(
     CreateTimeMixin,
 ):
     ticker: Mapped[str]
-    price: Mapped[str]
+    price: Mapped[float]
