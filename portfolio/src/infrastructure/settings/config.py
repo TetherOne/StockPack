@@ -1,5 +1,6 @@
-from pydantic import BaseModel, PostgresDsn
-from pydantic_settings import BaseSettings, SettingsConfigDict
+from pydantic import PostgresDsn, BaseModel
+from pydantic_settings import SettingsConfigDict
+from pydantic_settings import BaseSettings
 
 
 class DatabaseConfig(BaseModel):
@@ -12,7 +13,7 @@ class DatabaseConfig(BaseModel):
 
 class Settings(BaseSettings):
     model_config = SettingsConfigDict(
-        env_file=("envs/app.env",),
+        env_file=("./src/infrastructure/settings/envs/app.env",),
         case_sensitive=False,
         env_nested_delimiter="__",
         env_prefix="PORTFOLIO__",
