@@ -5,7 +5,17 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+    container_name: portfolio-app
     restart: on-failure
     command: sh -c "uvicorn src.runner:app_portfolio --host 0.0.0.0 --port 8000 --reload"
     ports:
       - "8020:8000"
+
+  db:
+    image: postgres
+    container_name: portfolio-db
+    restart: on-failure
+    env_file:
+      - ./src/infrastructure/settings/envs/db.env
+    ports:
+      - "5440:5432"

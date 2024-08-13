@@ -122,8 +122,8 @@ celerybeat.pid
 *.sage.py
 
 # Environments
-envs/*
-!envs/.gitkeep
+*/envs/*.env
+!src/infrastructure/settings/envs/.gitkeep
 !.gitkeep
 venv/
 venv.bak/
