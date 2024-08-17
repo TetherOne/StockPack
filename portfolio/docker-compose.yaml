@@ -7,7 +7,7 @@ services:
       dockerfile: Dockerfile
     container_name: portfolio-app
     restart: on-failure
-    command: sh -c "uvicorn src.runner:app_portfolio --host 0.0.0.0 --port 8000 --reload"
+    command: sh -c "uvicorn src.application.server:app_portfolio --host 0.0.0.0 --port 8000 --reload"
     ports:
       - "8020:8000"
 

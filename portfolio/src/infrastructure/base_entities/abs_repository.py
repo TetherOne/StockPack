@@ -9,9 +9,5 @@ class AbstractReadRepository(ABC, Generic[table_type]):
         self.model = table_type
 
     @abstractmethod
-    async def get(self, **kwargs) -> Any:
-        raise NotImplementedError
-
-    @abstractmethod
     async def get_list(self, **kwargs) -> Any:
         raise NotImplementedError
