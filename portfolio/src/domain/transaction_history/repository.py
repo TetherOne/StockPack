@@ -3,7 +3,7 @@ from typing import Optional, List, Any
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import async_sessionmaker
 
-from src.domain.history.schema import TransactionHistorySchema
+from src.domain.transaction_history.schema import TransactionHistorySchema
 from src.infrastructure.base_entities.abs_repository import AbstractReadRepository
 from src.infrastructure.database.db_helper import DatabaseHelper
 from src.infrastructure.database.models import TransactionHistory

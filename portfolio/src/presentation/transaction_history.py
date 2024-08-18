@@ -2,17 +2,20 @@ from typing import List
 
 from fastapi import APIRouter, Depends
 
-from src.domain.history.schema import TransactionHistorySchema
-from src.service.service import TransactionHistoryService
+from src.domain.transaction_history.schema import TransactionHistorySchema
+from src.service.transaction_history_service import TransactionHistoryService
 
 
 class TransactionHistoryRouter:
-    api_router = APIRouter(prefix="/history", tags=["Transaction History"])
+    api_router = APIRouter(prefix="/transaction_history", tags=["Transaction History"])
 
     @staticmethod
-    @api_router.get("", response_model=List[TransactionHistorySchema])
+    @api_router.get(
+        "",
+        response_model=List[TransactionHistorySchema],
+    )
     async def get_transactions_history(
         parameter: str = "created_at",
-        account: TransactionHistoryService = Depends(TransactionHistoryService),
+        transactions: TransactionHistoryService = Depends(TransactionHistoryService),
     ):
-        return await account.get_transactions_history_list(parameter=parameter)
+        return await transactions.get_transactions_history_list(parameter=parameter)

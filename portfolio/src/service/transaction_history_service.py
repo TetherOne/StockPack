@@ -3,8 +3,8 @@ from typing import Optional, List
 from fastapi import Depends
 
 from src.application.container import Container
-from src.domain.history.repository import TransactionHistoryReadRepository
-from src.domain.history.schema import TransactionHistorySchema
+from src.domain.transaction_history.repository import TransactionHistoryReadRepository
+from src.domain.transaction_history.schema import TransactionHistorySchema
 
 
 class TransactionHistoryService:

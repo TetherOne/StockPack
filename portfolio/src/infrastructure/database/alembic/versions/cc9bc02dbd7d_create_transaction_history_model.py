@@ -1,4 +1,4 @@
-"""create transaction history model
+"""create transaction transaction_history model
 
 Revision ID: cc9bc02dbd7d
 Revises:
