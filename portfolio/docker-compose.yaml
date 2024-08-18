@@ -7,9 +7,14 @@ services:
       dockerfile: Dockerfile
     container_name: portfolio-app
     restart: on-failure
-    command: sh -c "alembic upgrade head && uvicorn src.application.server:app_portfolio --host 0.0.0.0 --port 8000 --reload"
+    command: sh -c "alembic upgrade head &&
+                    uvicorn src.application.server:app_portfolio --host 0.0.0.0 --port 8000 --reload"
+    volumes:
+      - .:/app
     ports:
       - "8020:8000"
+    depends_on:
+      - db
 
   db:
     image: postgres
